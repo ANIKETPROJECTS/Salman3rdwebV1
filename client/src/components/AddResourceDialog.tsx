@@ -83,7 +83,7 @@ export function AddResourceDialog() {
           <Plus className="h-5 w-5" /> Add Resource
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[550px]">
+      <DialogContent className="sm:max-w-[900px]">
         <DialogHeader className="space-y-3">
           <div className="mx-auto sm:mx-0 w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center mb-2">
             <Plus className="h-6 w-6 text-emerald-600" />

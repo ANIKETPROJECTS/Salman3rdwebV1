@@ -35,11 +35,11 @@ const DialogContent = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <DialogPortal>
     <DialogOverlay />
-    <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-6">
       <DialogPrimitive.Content
         ref={ref}
         className={cn(
-          "relative grid w-full max-w-lg gap-6 border-none bg-white p-6 sm:p-8 shadow-2xl sm:rounded-2xl animate-in fade-in-0 zoom-in-95 duration-200",
+          "relative grid w-full max-w-4xl gap-6 border-none bg-white p-6 sm:p-8 shadow-2xl sm:rounded-2xl animate-in fade-in-0 zoom-in-95 duration-200",
           className
         )}
         {...props}

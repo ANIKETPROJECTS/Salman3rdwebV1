@@ -34,8 +34,8 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
   const Sidebar = ({ className }: { className?: string }) => (
     <div className={cn("flex h-full flex-col border-r bg-white", className)}>
       <div className="flex h-16 items-center border-b px-6">
-        <Link href="/dashboard" className="flex items-center gap-2 font-serif font-bold text-lg text-primary">
-          <BookOpen className="h-6 w-6" />
+        <Link href="/dashboard" className="flex items-center gap-2 font-serif font-bold text-lg text-emerald-600">
+          <BookOpen className="h-6 w-6 text-emerald-600" />
           <span>AIPTA Portal</span>
         </Link>
       </div>
@@ -100,7 +100,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
               <Sidebar className="border-none" />
             </SheetContent>
           </Sheet>
-          <span className="font-serif font-bold text-lg">AIPTA Portal</span>
+          <span className="font-serif font-bold text-lg text-emerald-600">AIPTA Portal</span>
         </header>
         
         <main className="flex-1 p-6 lg:p-8 overflow-x-hidden">

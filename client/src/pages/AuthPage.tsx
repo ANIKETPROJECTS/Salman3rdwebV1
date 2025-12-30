@@ -60,14 +60,14 @@ export default function AuthPage() {
       className="min-h-screen flex items-center justify-center p-4 bg-cover bg-center bg-no-repeat relative"
       style={{ backgroundImage: 'url("/bg.jpg")' }}
     >
-      <div className="w-full max-w-5xl flex flex-col md:flex-row items-stretch justify-center gap-8 relative z-10">
-        <div className="w-full md:w-1/2 max-w-md flex">
-          <Card className="border-none shadow-2xl bg-white/90 backdrop-blur-md p-8 w-full flex flex-col items-center justify-center text-center">
-            <div className="inline-flex items-center justify-center bg-primary text-primary-foreground p-4 rounded-2xl mb-6 shadow-lg">
-              <BookOpen className="h-10 w-10" />
+      <div className="w-full max-w-5xl flex flex-col md:flex-row items-center justify-center gap-8 relative z-10">
+        <div className="w-full md:w-1/3 max-w-sm flex">
+          <Card className="border-none shadow-2xl bg-white/90 backdrop-blur-md p-6 w-full flex flex-col items-center justify-center text-center">
+            <div className="inline-flex items-center justify-center bg-emerald-600 text-white p-3 rounded-2xl mb-4 shadow-lg shadow-emerald-200">
+              <BookOpen className="h-8 w-8" />
             </div>
-            <h1 className="font-serif text-4xl font-bold tracking-tight text-slate-900 mb-4">Welcome Back</h1>
-            <p className="text-slate-600 text-lg font-medium">Sign in to your member account to access premium physics resources and collaborate with peers.</p>
+            <h1 className="font-serif text-3xl font-bold tracking-tight text-slate-900 mb-3">Welcome Back</h1>
+            <p className="text-slate-600 text-base font-medium leading-relaxed">Sign in to your member account to access premium resources and collaborate with peers.</p>
           </Card>
         </div>
 

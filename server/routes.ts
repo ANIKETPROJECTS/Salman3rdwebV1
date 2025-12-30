@@ -204,6 +204,25 @@ async function seed() {
       author: "Council"
     });
     await storage.createResource({
+      title: "CBSE Class 12 Physics Notes - Optics",
+      type: "study_material",
+      year: 2025,
+      classLevel: "12",
+      link: "#",
+      description: "Detailed notes on Ray and Wave Optics for Class 12.",
+      isNew: true,
+      author: "IAPT Education Cell"
+    });
+    await storage.createResource({
+      title: "Lab Manual: Physics Practical Experiments",
+      type: "study_material",
+      year: 2024,
+      classLevel: "11",
+      link: "#",
+      description: "Comprehensive guide for senior secondary physics practicals.",
+      author: "NCERT"
+    });
+    await storage.createResource({
       title: "2024 Board Question Paper - Physics",
       type: "question_paper",
       year: 2024,
@@ -213,6 +232,25 @@ async function seed() {
       author: "Board"
     });
     await storage.createResource({
+      title: "IAPT Physics Olympiad (NSEP) 2023 Paper",
+      type: "question_paper",
+      year: 2023,
+      classLevel: "12",
+      link: "#",
+      description: "National Standard Examination in Physics question paper.",
+      author: "IAPT"
+    });
+    await storage.createResource({
+      title: "Unit Test - Thermodynamics & Kinetic Theory",
+      type: "question_paper",
+      year: 2025,
+      classLevel: "11",
+      link: "#",
+      description: "Sample unit test for practice.",
+      isNew: true,
+      author: "Teacher Network"
+    });
+    await storage.createResource({
       title: "Force and Laws of Motion - Lecture 1",
       type: "video",
       year: 2025,
@@ -220,6 +258,25 @@ async function seed() {
       link: "https://www.youtube.com/watch?v=placeholder",
       description: "Introduction to Newton's laws.",
       author: "Dr. H.C. Verma"
+    });
+    await storage.createResource({
+      title: "Quantum Mechanics for Beginners",
+      type: "video",
+      year: 2025,
+      classLevel: "College",
+      link: "https://www.youtube.com/watch?v=placeholder",
+      description: "A simple introduction to quantum concepts.",
+      isNew: true,
+      author: "Prof. Walter Lewin"
+    });
+    await storage.createResource({
+      title: "Electromagnetic Induction - Visualized",
+      type: "video",
+      year: 2024,
+      classLevel: "12",
+      link: "https://www.youtube.com/watch?v=placeholder",
+      description: "Experimental demonstration of Faraday's Law.",
+      author: "Physics Girl"
     });
     console.log("Seeded resources");
   }

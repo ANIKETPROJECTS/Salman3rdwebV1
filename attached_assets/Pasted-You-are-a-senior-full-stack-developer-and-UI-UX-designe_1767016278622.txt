@@ -1,0 +1,133 @@
+You are a senior full-stack developer and UI/UX designer.
+
+Build a professional web application for an "All India Physics Teachers Association (ICSE)" platform.
+
+BACKGROUND:
+- The organization is led by the President of an All-India Physics Teachers group.
+- 2000+ Physics teachers (ICSE curriculum specific).
+- Members include:
+  - Paper setters
+  - Book authors
+  - Senior educators
+- Users are from India and multiple other countries.
+- Access is strictly via secure login.
+- Every academic year, study material, question papers, and resources change.
+
+GOAL:
+Create the FIRST VERSION focusing on:
+1. Clean, modern UI
+2. Secure login system
+3. Role-based dashboard
+4. Organized resource access
+
+-----------------------------------
+TECH STACK (USE THIS):
+-----------------------------------
+Frontend:
+- React (with Vite)
+- Tailwind CSS
+- Responsive design (desktop + mobile)
+
+Backend:
+- Node.js + Express
+- JWT authentication
+- MongoDB (schema ready for yearly data changes)
+
+-----------------------------------
+USER ROLES:
+-----------------------------------
+1. Admin (President / Core Team)
+2. Teacher (Member)
+
+-----------------------------------
+FEATURES TO BUILD:
+-----------------------------------
+
+1. LANDING PAGE
+- Professional academic look
+- Sections:
+  - About the Association
+  - Benefits for Physics Teachers (ICSE)
+  - Secure Members Login
+- Button: "Member Login"
+
+2. AUTHENTICATION
+- Login system (email + password)
+- JWT-based authentication
+- Protected routes
+- Forgot password UI (logic placeholder)
+
+3. DASHBOARD (After Login)
+Show a sidebar-based dashboard with:
+- Welcome message
+- User role display (Teacher / Admin)
+
+Sidebar menu:
+- Dashboard Home
+- Study Materials
+- Question Papers
+- Video Lectures
+- Author & Paper Setter Resources
+- Profile
+- Logout
+
+4. STUDY MATERIALS PAGE
+- Filter by:
+  - Academic Year
+  - Class (9 / 10 / etc.)
+  - Topic
+- Card-based layout
+- Download / View buttons (dummy data for now)
+
+5. QUESTION PAPERS PAGE
+- Year-wise organization
+- Paper setter name visible
+- ICSE focused papers
+- Download option (placeholder links)
+
+6. VIDEO RESOURCES PAGE
+- Embedded video cards (YouTube / hosted links placeholder)
+- Topic-based filtering
+
+7. ADMIN PANEL (UI ONLY FOR NOW)
+- Upload new resources
+- Select:
+  - Year
+  - Category (Study Material / Paper / Video)
+  - Author name
+- Ability to mark content as "New for this Year"
+
+8. DATA STRUCTURE (IMPORTANT)
+Design MongoDB schemas to support:
+- Yearly data updates
+- Multiple authors per resource
+- Multi-country users
+- Role-based access
+
+-----------------------------------
+DESIGN REQUIREMENTS:
+-----------------------------------
+- Use academic colors (blue, white, subtle gray)
+- Clean typography
+- Icons for each sidebar item
+- Fully responsive layout
+
+-----------------------------------
+OUTPUT REQUIREMENTS:
+-----------------------------------
+1. Generate full React frontend code first
+2. Include Tailwind setup
+3. Create dummy JSON data for resources
+4. Backend routes with placeholder logic
+5. Clear comments explaining where yearly data changes occur
+6. Code should be production-ready and scalable
+
+-----------------------------------
+IMPORTANT:
+-----------------------------------
+- Do NOT hardcode year-specific data
+- Year should be dynamic
+- Prepare for future mobile app integration
+- Write clean, well-commented code
+
+Start by generating the complete frontend UI structure first.

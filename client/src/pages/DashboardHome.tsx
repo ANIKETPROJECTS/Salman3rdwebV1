@@ -6,6 +6,7 @@ import { BookOpen, FileText, Video, ArrowRight, UserCheck, Upload, Bell, Setting
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { cn } from "@/lib/utils";
+import { AddResourceDialog } from "@/components/AddResourceDialog";
 
 export default function DashboardHome() {
   const { user } = useAuth();

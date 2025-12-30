@@ -83,29 +83,33 @@ export function AddResourceDialog() {
           <Plus className="h-5 w-5" /> Add Resource
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[600px]">
-        <DialogHeader className="space-y-3">
-          <div className="mx-auto sm:mx-0 w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center mb-2">
-            <Plus className="h-6 w-6 text-emerald-600" />
+      <DialogContent className="sm:max-w-[750px] p-0 overflow-hidden">
+        <DialogHeader className="p-6 pb-2 space-y-2 border-b border-slate-50 bg-slate-50/30">
+          <div className="flex items-center gap-4">
+            <div className="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center">
+              <Plus className="h-5 w-5 text-emerald-700" />
+            </div>
+            <div>
+              <DialogTitle className="text-xl font-serif text-slate-900">Add New Resource</DialogTitle>
+              <DialogDescription className="text-xs text-slate-500 font-medium">
+                Upload educational materials for students.
+              </DialogDescription>
+            </div>
           </div>
-          <DialogTitle className="text-2xl font-serif text-slate-900">Add New Resource</DialogTitle>
-          <DialogDescription className="text-slate-500 font-medium">
-            Upload study materials, question papers, or video links for students.
-          </DialogDescription>
         </DialogHeader>
 
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 mt-4">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="px-6 py-4 space-y-4">
             <FormField
               control={form.control}
               name="title"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-slate-700 font-bold">Title</FormLabel>
+                  <FormLabel className="text-slate-700 font-bold text-sm">Title</FormLabel>
                   <FormControl>
                     <Input 
                       placeholder="e.g. Thermodynamics Chapter Notes" 
-                      className="h-11 bg-slate-50 border-slate-200 focus-visible:ring-emerald-500 rounded-xl font-medium"
+                      className="h-10 bg-slate-50 border-slate-200 focus-visible:ring-emerald-500 rounded-xl font-medium"
                       {...field} 
                     />
                   </FormControl>
@@ -114,7 +118,7 @@ export function AddResourceDialog() {
               )}
             />
 
-            <div className="grid grid-cols-2 gap-5">
+            <div className="grid grid-cols-2 gap-x-5 gap-y-3">
               <FormField
                 control={form.control}
                 name="type"
@@ -123,7 +127,7 @@ export function AddResourceDialog() {
                     <FormLabel className="text-slate-700 font-bold">Type</FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
-                        <SelectTrigger className="h-11 bg-slate-50 border-slate-200 focus:ring-emerald-500 rounded-xl font-medium">
+                        <SelectTrigger className="h-10 bg-slate-50 border-slate-200 focus:ring-emerald-500 rounded-xl font-medium">
                           <SelectValue placeholder="Select type" />
                         </SelectTrigger>
                       </FormControl>
@@ -147,7 +151,7 @@ export function AddResourceDialog() {
                     <FormControl>
                       <Input 
                         type="number" 
-                        className="h-11 bg-slate-50 border-slate-200 focus-visible:ring-emerald-500 rounded-xl font-medium"
+                        className="h-10 bg-slate-50 border-slate-200 focus-visible:ring-emerald-500 rounded-xl font-medium"
                         {...field} 
                       />
                     </FormControl>
@@ -155,9 +159,7 @@ export function AddResourceDialog() {
                   </FormItem>
                 )}
               />
-            </div>
 
-            <div className="grid grid-cols-2 gap-5">
               <FormField
                 control={form.control}
                 name="classLevel"
@@ -167,7 +169,7 @@ export function AddResourceDialog() {
                     <FormControl>
                       <Input 
                         placeholder="e.g. 11, 12" 
-                        className="h-11 bg-slate-50 border-slate-200 focus-visible:ring-emerald-500 rounded-xl font-medium"
+                        className="h-10 bg-slate-50 border-slate-200 focus-visible:ring-emerald-500 rounded-xl font-medium"
                         {...field} 
                         value={field.value || ''} 
                       />
@@ -186,7 +188,7 @@ export function AddResourceDialog() {
                     <FormControl>
                       <Input 
                         placeholder="Physics" 
-                        className="h-11 bg-slate-50 border-slate-200 focus-visible:ring-emerald-500 rounded-xl font-medium"
+                        className="h-10 bg-slate-50 border-slate-200 focus-visible:ring-emerald-500 rounded-xl font-medium"
                         {...field} 
                         value={field.value || ''} 
                       />
@@ -202,11 +204,11 @@ export function AddResourceDialog() {
               name="link"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-slate-700 font-bold">Link URL</FormLabel>
+                  <FormLabel className="text-slate-700 font-bold text-sm">Link URL</FormLabel>
                   <FormControl>
                     <Input 
                       placeholder="https://..." 
-                      className="h-11 bg-slate-50 border-slate-200 focus-visible:ring-emerald-500 rounded-xl font-medium"
+                      className="h-10 bg-slate-50 border-slate-200 focus-visible:ring-emerald-500 rounded-xl font-medium"
                       {...field} 
                     />
                   </FormControl>
@@ -220,11 +222,11 @@ export function AddResourceDialog() {
               name="description"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-slate-700 font-bold">Description (Optional)</FormLabel>
+                  <FormLabel className="text-slate-700 font-bold text-sm">Description (Optional)</FormLabel>
                   <FormControl>
                     <Textarea 
-                      placeholder="Brief details about the resource..." 
-                      className="resize-none bg-slate-50 border-slate-200 focus-visible:ring-emerald-500 rounded-xl font-medium" 
+                      placeholder="Brief details..." 
+                      className="h-20 resize-none bg-slate-50 border-slate-200 focus-visible:ring-emerald-500 rounded-xl font-medium" 
                       {...field} 
                       value={field.value || ''} 
                     />
@@ -234,36 +236,33 @@ export function AddResourceDialog() {
               )}
             />
 
-            <FormField
-              control={form.control}
-              name="isNew"
-              render={({ field }) => (
-                <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-2xl border border-slate-200 bg-slate-50/30 p-4 transition-all hover:bg-emerald-50/20 hover:border-emerald-100">
-                  <FormControl>
-                    <Checkbox
-                      checked={field.value || false}
-                      onCheckedChange={field.onChange}
-                      className="data-[state=checked]:bg-emerald-600 data-[state=checked]:border-emerald-600"
-                    />
-                  </FormControl>
-                  <div className="space-y-1 leading-none">
-                    <FormLabel className="text-slate-800 font-bold">
+            <div className="flex items-center justify-between gap-6 pt-2">
+              <FormField
+                control={form.control}
+                name="isNew"
+                render={({ field }) => (
+                  <FormItem className="flex flex-row items-center space-x-3 space-y-0">
+                    <FormControl>
+                      <Checkbox
+                        checked={field.value || false}
+                        onCheckedChange={field.onChange}
+                        className="data-[state=checked]:bg-emerald-600 data-[state=checked]:border-emerald-600"
+                      />
+                    </FormControl>
+                    <FormLabel className="text-slate-800 font-bold text-sm cursor-pointer">
                       Mark as New
                     </FormLabel>
-                    <p className="text-sm text-slate-500 font-medium">
-                      This will add a "NEW" badge to the card.
-                    </p>
-                  </div>
-                </FormItem>
-              )}
-            />
+                  </FormItem>
+                )}
+              />
 
-            <DialogFooter className="gap-3 pt-4 border-t border-slate-50">
-              <Button type="button" variant="ghost" onClick={() => setOpen(false)} className="rounded-xl text-slate-500 font-bold hover:bg-slate-100">Cancel</Button>
-              <Button type="submit" disabled={isPending} className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl px-8 h-11 shadow-lg shadow-emerald-100 transition-all active:scale-95 font-bold">
-                {isPending ? "Adding..." : "Add Resource"}
-              </Button>
-            </DialogFooter>
+              <DialogFooter className="gap-3 pt-0">
+                <Button type="button" variant="ghost" onClick={() => setOpen(false)} className="rounded-xl text-slate-500 font-bold hover:bg-slate-100 h-10 px-6">Cancel</Button>
+                <Button type="submit" disabled={isPending} className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl px-8 h-10 shadow-lg shadow-emerald-100 transition-all active:scale-95 font-bold">
+                  {isPending ? "Adding..." : "Add Resource"}
+                </Button>
+              </DialogFooter>
+            </div>
           </form>
         </Form>
       </DialogContent>

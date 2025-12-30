@@ -74,11 +74,11 @@ export default function AuthPage() {
         <div className="w-full md:w-1/2 max-w-md">
           <Tabs defaultValue="admin" className="w-full">
             <TabsList className="grid w-full grid-cols-2 bg-white/80 backdrop-blur-sm p-1 rounded-xl h-12 shadow-lg mb-4">
-              <TabsTrigger value="admin" className="rounded-lg data-[state=active]:bg-primary data-[state=active]:text-white flex items-center gap-2">
+              <TabsTrigger value="admin" className="rounded-lg data-[state=active]:bg-emerald-600 data-[state=active]:text-white flex items-center gap-2">
                 <ShieldCheck className="h-4 w-4" />
                 Admin
               </TabsTrigger>
-              <TabsTrigger value="teacher" className="rounded-lg data-[state=active]:bg-primary data-[state=active]:text-white flex items-center gap-2">
+              <TabsTrigger value="teacher" className="rounded-lg data-[state=active]:bg-emerald-600 data-[state=active]:text-white flex items-center gap-2">
                 <GraduationCap className="h-4 w-4" />
                 Teacher
               </TabsTrigger>
@@ -87,8 +87,8 @@ export default function AuthPage() {
             <TabsContent value="admin">
               <Card className="border-none shadow-2xl bg-white/95 backdrop-blur-sm">
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <ShieldCheck className="h-5 w-5 text-primary" />
+                  <CardTitle className="flex items-center gap-2 text-emerald-700">
+                    <ShieldCheck className="h-5 w-5" />
                     Admin Login
                   </CardTitle>
                   <CardDescription>Enter administrator credentials to access the portal</CardDescription>
@@ -101,9 +101,9 @@ export default function AuthPage() {
                         name="username"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Admin Username</FormLabel>
+                            <FormLabel className="text-slate-700">Admin Username</FormLabel>
                             <FormControl>
-                              <Input placeholder="Enter admin username" {...field} />
+                              <Input placeholder="Enter admin username" {...field} className="focus-visible:ring-emerald-500" />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -115,9 +115,9 @@ export default function AuthPage() {
                         name="password"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Password</FormLabel>
+                            <FormLabel className="text-slate-700">Password</FormLabel>
                             <FormControl>
-                              <Input type="password" placeholder="••••••••" {...field} />
+                              <Input type="password" placeholder="••••••••" {...field} className="focus-visible:ring-emerald-500" />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -126,20 +126,20 @@ export default function AuthPage() {
 
                       <div className="flex justify-end">
                         <Link href="/forgot-password">
-                          <Button variant="link" size="sm" className="px-0 font-normal text-muted-foreground" type="button">
+                          <Button variant="link" size="sm" className="px-0 font-normal text-muted-foreground hover:text-emerald-600" type="button">
                             Forgot password?
                           </Button>
                         </Link>
                       </div>
 
-                      <Button type="submit" className="w-full h-11 text-base font-medium" disabled={isLoggingIn}>
+                      <Button type="submit" className="w-full h-11 text-base font-medium bg-emerald-600 hover:bg-emerald-700 text-white" disabled={isLoggingIn}>
                         {isLoggingIn ? "Signing in..." : "Sign In as Admin"}
                       </Button>
                     </form>
                   </Form>
                 </CardContent>
                 <CardFooter className="flex flex-col gap-4 text-center text-sm text-muted-foreground bg-slate-50/50 py-4 rounded-b-xl">
-                  <Link href="/" className="hover:text-primary underline-offset-4 hover:underline">
+                  <Link href="/" className="hover:text-emerald-600 underline-offset-4 hover:underline">
                     Back to Home
                   </Link>
                 </CardFooter>
@@ -149,8 +149,8 @@ export default function AuthPage() {
             <TabsContent value="teacher">
               <Card className="border-none shadow-2xl bg-white/95 backdrop-blur-sm">
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <GraduationCap className="h-5 w-5 text-primary" />
+                  <CardTitle className="flex items-center gap-2 text-emerald-700">
+                    <GraduationCap className="h-5 w-5" />
                     Teacher Login
                   </CardTitle>
                   <CardDescription>Enter your teacher credentials to access your classroom</CardDescription>
@@ -163,9 +163,9 @@ export default function AuthPage() {
                         name="username"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Teacher Email / Username</FormLabel>
+                            <FormLabel className="text-slate-700">Teacher Email / Username</FormLabel>
                             <FormControl>
-                              <Input placeholder="Enter teacher username" {...field} />
+                              <Input placeholder="Enter teacher username" {...field} className="focus-visible:ring-emerald-500" />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -177,9 +177,9 @@ export default function AuthPage() {
                         name="password"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Password</FormLabel>
+                            <FormLabel className="text-slate-700">Password</FormLabel>
                             <FormControl>
-                              <Input type="password" placeholder="••••••••" {...field} />
+                              <Input type="password" placeholder="••••••••" {...field} className="focus-visible:ring-emerald-500" />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -188,20 +188,20 @@ export default function AuthPage() {
 
                       <div className="flex justify-end">
                         <Link href="/forgot-password">
-                          <Button variant="link" size="sm" className="px-0 font-normal text-muted-foreground" type="button">
+                          <Button variant="link" size="sm" className="px-0 font-normal text-muted-foreground hover:text-emerald-600" type="button">
                             Forgot password?
                           </Button>
                         </Link>
                       </div>
 
-                      <Button type="submit" className="w-full h-11 text-base font-medium" disabled={isLoggingIn}>
+                      <Button type="submit" className="w-full h-11 text-base font-medium bg-emerald-600 hover:bg-emerald-700 text-white" disabled={isLoggingIn}>
                         {isLoggingIn ? "Signing in..." : "Sign In as Teacher"}
                       </Button>
                     </form>
                   </Form>
                 </CardContent>
                 <CardFooter className="flex flex-col gap-4 text-center text-sm text-muted-foreground bg-slate-50/50 py-4 rounded-b-xl">
-                  <Link href="/" className="hover:text-primary underline-offset-4 hover:underline">
+                  <Link href="/" className="hover:text-emerald-600 underline-offset-4 hover:underline">
                     Back to Home
                   </Link>
                 </CardFooter>

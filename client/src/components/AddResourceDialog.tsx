@@ -33,7 +33,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Plus } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 // Extend schema for form validation
 const formSchema = insertResourceSchema.extend({
@@ -84,48 +84,55 @@ export function AddResourceDialog() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="gap-2 shadow-lg shadow-primary/20">
-          <Plus className="h-4 w-4" /> Add Resource
+        <Button className="gap-2 bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg shadow-emerald-200/50 rounded-xl px-6 h-11 transition-all active:scale-95 font-bold">
+          <Plus className="h-5 w-5" /> Add Resource
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[550px]">
-        <DialogHeader>
-          <DialogTitle>Add New Resource</DialogTitle>
-          <DialogDescription>
+        <DialogHeader className="space-y-3">
+          <div className="mx-auto sm:mx-0 w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center mb-2">
+            <Plus className="h-6 w-6 text-emerald-600" />
+          </div>
+          <DialogTitle className="text-2xl font-serif text-slate-900">Add New Resource</DialogTitle>
+          <DialogDescription className="text-slate-500 font-medium">
             Upload study materials, question papers, or video links for students.
           </DialogDescription>
         </DialogHeader>
 
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 mt-4">
             <FormField
               control={form.control}
               name="title"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Title</FormLabel>
+                  <FormLabel className="text-slate-700 font-bold">Title</FormLabel>
                   <FormControl>
-                    <Input placeholder="e.g. Thermodynamics Chapter Notes" {...field} />
+                    <Input 
+                      placeholder="e.g. Thermodynamics Chapter Notes" 
+                      className="h-11 bg-slate-50 border-slate-200 focus-visible:ring-emerald-500 rounded-xl font-medium"
+                      {...field} 
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-5">
               <FormField
                 control={form.control}
                 name="type"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Type</FormLabel>
+                    <FormLabel className="text-slate-700 font-bold">Type</FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
-                        <SelectTrigger>
+                        <SelectTrigger className="h-11 bg-slate-50 border-slate-200 focus:ring-emerald-500 rounded-xl font-medium">
                           <SelectValue placeholder="Select type" />
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent>
+                      <SelectContent className="rounded-xl border-slate-200">
                         <SelectItem value="study_material">Study Material</SelectItem>
                         <SelectItem value="question_paper">Question Paper</SelectItem>
                         <SelectItem value="video">Video Lecture</SelectItem>
@@ -141,9 +148,13 @@ export function AddResourceDialog() {
                 name="year"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Year</FormLabel>
+                    <FormLabel className="text-slate-700 font-bold">Year</FormLabel>
                     <FormControl>
-                      <Input type="number" {...field} />
+                      <Input 
+                        type="number" 
+                        className="h-11 bg-slate-50 border-slate-200 focus-visible:ring-emerald-500 rounded-xl font-medium"
+                        {...field} 
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -151,15 +162,20 @@ export function AddResourceDialog() {
               />
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-5">
               <FormField
                 control={form.control}
                 name="classLevel"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Class</FormLabel>
+                    <FormLabel className="text-slate-700 font-bold">Class</FormLabel>
                     <FormControl>
-                      <Input placeholder="e.g. 11, 12" {...field} value={field.value || ''} />
+                      <Input 
+                        placeholder="e.g. 11, 12" 
+                        className="h-11 bg-slate-50 border-slate-200 focus-visible:ring-emerald-500 rounded-xl font-medium"
+                        {...field} 
+                        value={field.value || ''} 
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -171,9 +187,14 @@ export function AddResourceDialog() {
                 name="subject"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Subject</FormLabel>
+                    <FormLabel className="text-slate-700 font-bold">Subject</FormLabel>
                     <FormControl>
-                      <Input placeholder="Physics" {...field} value={field.value || ''} />
+                      <Input 
+                        placeholder="Physics" 
+                        className="h-11 bg-slate-50 border-slate-200 focus-visible:ring-emerald-500 rounded-xl font-medium"
+                        {...field} 
+                        value={field.value || ''} 
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -186,9 +207,13 @@ export function AddResourceDialog() {
               name="link"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Link URL</FormLabel>
+                  <FormLabel className="text-slate-700 font-bold">Link URL</FormLabel>
                   <FormControl>
-                    <Input placeholder="https://..." {...field} />
+                    <Input 
+                      placeholder="https://..." 
+                      className="h-11 bg-slate-50 border-slate-200 focus-visible:ring-emerald-500 rounded-xl font-medium"
+                      {...field} 
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -200,11 +225,11 @@ export function AddResourceDialog() {
               name="description"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Description (Optional)</FormLabel>
+                  <FormLabel className="text-slate-700 font-bold">Description (Optional)</FormLabel>
                   <FormControl>
                     <Textarea 
                       placeholder="Brief details about the resource..." 
-                      className="resize-none" 
+                      className="resize-none bg-slate-50 border-slate-200 focus-visible:ring-emerald-500 rounded-xl font-medium" 
                       {...field} 
                       value={field.value || ''} 
                     />
@@ -218,28 +243,29 @@ export function AddResourceDialog() {
               control={form.control}
               name="isNew"
               render={({ field }) => (
-                <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
+                <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-2xl border border-slate-200 bg-slate-50/30 p-4 transition-all hover:bg-emerald-50/20 hover:border-emerald-100">
                   <FormControl>
                     <Checkbox
                       checked={field.value || false}
                       onCheckedChange={field.onChange}
+                      className="data-[state=checked]:bg-emerald-600 data-[state=checked]:border-emerald-600"
                     />
                   </FormControl>
                   <div className="space-y-1 leading-none">
-                    <FormLabel>
+                    <FormLabel className="text-slate-800 font-bold">
                       Mark as New
                     </FormLabel>
-                    <p className="text-sm text-muted-foreground">
-                      This will add a "New" badge to the card.
+                    <p className="text-sm text-slate-500 font-medium">
+                      This will add a "NEW" badge to the card.
                     </p>
                   </div>
                 </FormItem>
               )}
             />
 
-            <DialogFooter>
-              <Button type="button" variant="outline" onClick={() => setOpen(false)}>Cancel</Button>
-              <Button type="submit" disabled={isPending}>
+            <DialogFooter className="gap-3 pt-4 border-t border-slate-50">
+              <Button type="button" variant="ghost" onClick={() => setOpen(false)} className="rounded-xl text-slate-500 font-bold hover:bg-slate-100">Cancel</Button>
+              <Button type="submit" disabled={isPending} className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl px-8 h-11 shadow-lg shadow-emerald-100 transition-all active:scale-95 font-bold">
                 {isPending ? "Adding..." : "Add Resource"}
               </Button>
             </DialogFooter>

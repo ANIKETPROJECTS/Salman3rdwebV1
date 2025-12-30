@@ -51,41 +51,42 @@ export default function ResourceList({ type, title, description }: ResourceListP
         </div>
 
         {/* Filters Bar */}
-        <div className="bg-white p-4 rounded-xl border shadow-sm space-y-4 sm:space-y-0 sm:flex gap-4 items-center">
-          <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+        <div className="bg-white p-5 rounded-2xl border-none shadow-md shadow-slate-200/50 flex flex-col sm:flex-row gap-5 items-center ring-1 ring-slate-100">
+          <div className="relative flex-1 w-full">
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4.5 w-4.5 text-slate-400" />
             <Input 
-              placeholder="Search by title or subject..." 
-              className="pl-9"
+              placeholder="Search by title, subject, or keywords..." 
+              className="pl-11 h-11 bg-slate-50/50 border-slate-200 focus-visible:ring-emerald-500 rounded-xl font-medium"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
-          <div className="flex gap-2 w-full sm:w-auto">
+          <div className="flex gap-3 w-full sm:w-auto">
             <Select value={classFilter} onValueChange={setClassFilter}>
-              <SelectTrigger className="w-[130px]">
+              <SelectTrigger className="w-full sm:w-[150px] h-11 bg-white border-slate-200 focus:ring-emerald-500 rounded-xl font-semibold text-slate-700">
                 <SelectValue placeholder="Class" />
               </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All Classes</SelectItem>
-                {classes.map(c => <SelectItem key={c} value={c as string}>Class {c}</SelectItem>)}
+              <SelectContent className="rounded-xl border-slate-200">
+                <SelectItem value="all" className="font-medium">All Classes</SelectItem>
+                {classes.map(c => <SelectItem key={c} value={c as string} className="font-medium">Class {c}</SelectItem>)}
               </SelectContent>
             </Select>
 
             <Select value={yearFilter} onValueChange={setYearFilter}>
-              <SelectTrigger className="w-[130px]">
+              <SelectTrigger className="w-full sm:w-[150px] h-11 bg-white border-slate-200 focus:ring-emerald-500 rounded-xl font-semibold text-slate-700">
                 <SelectValue placeholder="Year" />
               </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All Years</SelectItem>
-                {years.map(y => <SelectItem key={y} value={String(y)}>{y}</SelectItem>)}
+              <SelectContent className="rounded-xl border-slate-200">
+                <SelectItem value="all" className="font-medium">All Years</SelectItem>
+                {years.map(y => <SelectItem key={y} value={String(y)} className="font-medium">{y}</SelectItem>)}
               </SelectContent>
             </Select>
             
             {(classFilter !== "all" || yearFilter !== "all" || search) && (
               <Button 
-                variant="ghost" 
+                variant="outline" 
                 size="icon" 
+                className="h-11 w-11 shrink-0 bg-slate-50 border-slate-200 text-slate-500 hover:text-red-600 hover:bg-red-50 hover:border-red-200 rounded-xl transition-all"
                 onClick={() => {
                   setSearch("");
                   setClassFilter("all");
@@ -93,7 +94,7 @@ export default function ResourceList({ type, title, description }: ResourceListP
                 }}
                 title="Clear filters"
               >
-                <FilterX className="h-4 w-4" />
+                <FilterX className="h-5 w-5" />
               </Button>
             )}
           </div>

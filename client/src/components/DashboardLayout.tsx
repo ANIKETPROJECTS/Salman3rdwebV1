@@ -48,11 +48,13 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
                 <Button
                   variant={isActive ? "secondary" : "ghost"}
                   className={cn(
-                    "w-full justify-start gap-3",
-                    isActive && "bg-blue-50 text-blue-700 font-medium"
+                    "w-full justify-start gap-3 transition-all duration-200",
+                    isActive 
+                      ? "bg-emerald-50 text-emerald-700 font-semibold shadow-sm border-l-4 border-emerald-600 rounded-l-none" 
+                      : "hover:bg-emerald-50/50 hover:text-emerald-600"
                   )}
                 >
-                  <item.icon className="h-4 w-4" />
+                  <item.icon className={cn("h-4 w-4", isActive ? "text-emerald-600" : "text-slate-500")} />
                   {item.label}
                 </Button>
               </Link>
@@ -60,17 +62,17 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
           })}
         </nav>
       </div>
-      <div className="border-t p-4">
+      <div className="border-t p-4 bg-slate-50/30">
         <div className="flex items-center gap-3 px-2 py-4">
-          <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-bold">
+          <div className="h-10 w-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 font-bold shadow-inner border border-emerald-200">
             {user?.username?.charAt(0).toUpperCase() || "U"}
           </div>
           <div className="overflow-hidden">
-            <p className="truncate text-sm font-medium">{user?.name || "User"}</p>
-            <p className="truncate text-xs text-muted-foreground capitalize">{user?.role || "Member"}</p>
+            <p className="truncate text-sm font-semibold text-slate-900">{user?.name || "User"}</p>
+            <p className="truncate text-xs text-slate-500 font-medium capitalize">{user?.role || "Member"}</p>
           </div>
         </div>
-        <Button variant="outline" className="w-full justify-start gap-3 text-muted-foreground" onClick={() => logout()}>
+        <Button variant="outline" className="w-full justify-start gap-3 text-slate-600 border-slate-200 hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-200 transition-colors" onClick={() => logout()}>
           <LogOut className="h-4 w-4" />
           Sign Out
         </Button>
